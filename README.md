@@ -1,5 +1,5 @@
 ﻿# Multiplication-App
-> [!Example Use] 
+> [!NOTE] 
 > npx ts-node src/app -b 5 -l 7 -n table -d outputs
 
 - b: number base
