@@ -13,11 +13,11 @@ const headerMessage = `
 for (let i = 1; i <= limit; i++) {
   outputMessage += `${base} x ${i} = ${base * i}\n`;
 }
+if (showTable)
+  console.log("🚀 ~ file: app.logic.ts:16 ~ outputMessage:", outputMessage);
 
 outputMessage = headerMessage + outputMessage;
 const outputPath = `outputs`;
 fs.mkdirSync(outputPath, { recursive: true });
 fs.writeFileSync(`${outputPath}/table-${base}.txt`, outputMessage);
-if (showTable)
-  console.log("🚀 ~ file: app.logic.ts:16 ~ outputMessage:", outputMessage);
 console.log("File was created");
