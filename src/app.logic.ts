@@ -1,14 +1,16 @@
 import fs from "fs";
+import { yarg } from "./config/plugins/args.plugins";
+
+const { b: base, l: limit, s: showTable } = yarg;
 
 let outputMessage = "";
-const base = 15;
 const headerMessage = `
 =================================
         - Table of ${base} -
 =================================\n
 `;
 
-for (let i = 1; i <= 10; i++) {
+for (let i = 1; i <= limit; i++) {
   outputMessage += `${base} x ${i} = ${base * i}\n`;
 }
 
@@ -16,3 +18,6 @@ outputMessage = headerMessage + outputMessage;
 const outputPath = `outputs`;
 fs.mkdirSync(outputPath, { recursive: true });
 fs.writeFileSync(`${outputPath}/table-${base}.txt`, outputMessage);
+if (showTable)
+  console.log("🚀 ~ file: app.logic.ts:16 ~ outputMessage:", outputMessage);
+console.log("File was created");
